@@ -39,9 +39,8 @@ Runs automatically on boot and restarts on failure — perfect for unattended ga
 
 ```mermaid
 flowchart LR
-    A[User Message<br>(curl / CLI)] --> B[RFMailNet Gateway<br>(Raspberry Pi)]
+    A[User Message (curl or CLI)] --> B[RFMailNet Gateway (Raspberry Pi)]
     B -->|Auto-discovery HELLO| C[VPS Peer Node]
     B -->|Route-based Forwarding| C
-    C -->|Store in Inbox + Optional Relay| D[Remote Node(s)]
-    B -.->|TTL + Loop Check| B
-
+    C -->|Store in Inbox and Optional Relay| D[Remote Node(s)]
+    B -.->|TTL and Loop Check| B
