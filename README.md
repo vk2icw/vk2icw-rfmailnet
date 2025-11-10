@@ -45,18 +45,4 @@ flowchart LR
     C -->|"Store in Inbox & Optional Relay"| D["Remote Node(s)"]
     B -.->|"TTL & Loop Check"| B
 
-### 📨 Message Routing Logic
 
-```mermaid
-flowchart TD
-    A["Incoming Message Received"] --> B{"Already Seen?"}
-    B -- Yes --> C["Ignore (Prevent Loop)"]
-    B -- No --> D["Save Message to Inbox"]
-    D --> E{"TTL > 0 ?"}
-    E -- No --> F["Stop – TTL Expired"]
-    E -- Yes --> G{"Known Route for Destination?"}
-    G -- Yes --> H["Forward via Discovered Route"]
-    G -- No --> I["Forward to Default Peer"]
-    H --> J["Mark as Sent / Update TTL"]
-    I --> J
-    J --> K["Wait for ACK or Next HELLO"]
