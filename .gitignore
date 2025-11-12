@@ -16,3 +16,9 @@
 # IDE files
 .vscode/
 .idea/
+/assets/
+*.json
+*.log
+wg0.conf
+*.key
+*.pem
